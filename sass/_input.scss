@@ -1,0 +1,21 @@
+.input {
+  height: 57px;
+  display: flex;
+  background-color: $Light-grayish-blue;
+  justify-content: space-between;
+  .input_menos {
+    @include cambiar_signos(24px, 5px);
+  }
+  .input_number {
+    width: 100%;
+    border: none;
+    background-color: $Light-grayish-blue;
+    font-size: 1.2em;
+    font-weight: 700;
+    font-family: $fuente-principal;
+    text-align: center;
+  }
+  .input_mas {
+    @include cambiar_signos(19px, 3px);
+  }
+}

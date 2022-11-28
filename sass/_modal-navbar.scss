@@ -1,0 +1,28 @@
+.modal_navbar {
+  &_fondo {
+    //@include modal_fondo;
+  }
+  background-color: $White;
+  width: 250px;
+  height: 100%;
+  padding: 28px 24px;
+  display: none;
+
+  &_items {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 200px;
+    list-style: none;
+    margin-top: 50px;
+  }
+  &_link {
+    text-decoration: none;
+    color: $Very-vark-blue;
+    font-weight: 700;
+    font-size: 1.1em;
+  }
+  &_cerrar_icon:hover {
+    cursor: pointer;
+  }
+}

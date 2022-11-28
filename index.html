@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+  <link rel="stylesheet" href="./css/styles.css">
+
+  <title> E-commerce </title>
+
+
+</head>
+
+<body>
+
+  <header class="header">
+    <div class="header_navegacion">
+      <img class="header_menu" src="./images/icon-menu.svg" alt="menu icon">
+
+      <nav class="navbar">
+        <ul class="navbar_items">
+          <li><a class="navbar_link" href="galeria.html">Colecciones</a></li>
+          <li><a class="navbar_link" href="#">Hombre</a></li>
+          <li><a class="navbar_link" href="#">Mujer</a></li>
+          <li><a class="navbar_link" href="#">Sobre Nosotros</a></li>
+          <li><a class="navbar_link" href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!--Navegacion mobil-->
+    <div class="modal_navbar_fondo">
+      <nav class="modal_navbar">
+        <img class="modal_navbar_cerrar_icon" src="./images/icon-close.svg" alt="icono cerrar">
+        <ul class="modal_navbar_items">
+          <li><a class="modal_navbar_link" href="#">Colecciones</a></li>
+          <li><a class="modal_navbar_link" href="#">Hombre</a></li>
+          <li><a class="modal_navbar_link" href="#">Mujer</a></li>
+          <li><a class="modal_navbar_link" href="#">Sobre Nosotros</a></li>
+          <li><a class="modal_navbar_link" href="#">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!--contenedor de icono de avatar y carrito-->
+    <div class="header_cart-avatar">
+      <div class="header_cart">
+        <div class="header_cart--notificacion">0</div>
+        <img class="carrito" src="./images/icon-cart.svg" alt="icono carrito">
+      </div>
+      <img class="header__avatar" src="./images/image-avatar.png" alt="icono avatar">
+    </div>
+  </header>
+
+  <main class="main-container">
+    <!--Seccion de fotos-->
+    <section class="content">
+      <article class="gallery">
+        <div class="galeria_imagen-conteiner">
+          <img class="galeria_izquierda" src="./images/icon-previous.svg" alt="icono izquierda">
+          <img class="galeria_derecha" src="./images/icon-next.svg" alt="icono derecha">
+        </div>
+        <div class="galeria_producto">
+          <img id="1" class="galeria_miniatura" src="./images/image-product-1-thumbnail.jpg" alt="producto">
+          <img id="2" class="galeria_miniatura" src="./images/image-product-2-thumbnail.jpg" alt="producto">
+          <img id="3" class="galeria_miniatura" src="./images/image-product-3-thumbnail.jpg" alt="producto">
+          <img id="4" class="galeria_miniatura" src="./images/image-product-4-thumbnail.jpg" alt="producto">
+        </div>
+      </article>
+
+      <article class="detalle_producto">
+        <h2 class="detalle_empresa">Tu Estilo </h2>
+        <h2 class="detalle_titulo"> Edición Limitada </h2>
+        <p class="detalle_descripcion">Haga clic en las imagenes para poder observar los detalles. Revise su carrito de
+          compras. Si elige comprar mas de 5 zapatillas, vera un alerta de stock</p>
+        <div class="detalle_precio">
+          <p class="detalle_nuevo">$125.00 <span class="detalle_descuento">50%</span></p>
+          <p class="detalle_anterior">$250.00</p>
+          <p class="detalle_descuento"><span>DISPONIBLES 5 UNIDADES</span></p>
+        </div>
+        <div class="detalle_producto-cantidad">
+          <div class="input">
+            <img class="input_menos" src="./images/icon-minus.svg" alt="menos">
+            <input class="input_number" type="text" value="0">
+            <img class="input_mas" src="./images/icon-plus.svg" alt="mas">
+          </div>
+
+          <button class="detalles_boton"><img src="./images/icon-cart.svg" alt="carrito">Agregar al carrito</button>
+        </div>
+        <div class="detalle_producto-pago">
+          <h4>Forma de Pago</h4>
+          <form name="formulario1" action="#">
+            <select name="cosa" onchange="cambia()">
+              <option value="0">Seleccione</option>
+              <option value="1">Credito</option>
+              <option value="2">Trasferencia</option>
+              <option value="3">Mercado Pago</option>
+            </select>
+
+            <select name="opt">
+              <option value="-">-</option>
+            </select>
+          </form>
+        </div>
+      </article>
+    </section>
+
+    <!--Cart modal carrito-->
+    <div class="cart-modal">
+      <p class="cart-modal_title">Cart</p>
+      <div class="cart-modal__chekout-container">
+        <div class="cart-modal__details-container">
+          <img class="cart-modal_imagen" src="./images/image-product-1-thumbnail.jpg" alt="">
+          <div>
+            <p class="cart-modal__product">Zapatillas Edicion Limitada</p>
+            <p class="cart-modal__precio">$125 x 3 <span>$375.00</span></p>
+          </div>
+          <img class="cart_modal__delete" src="./images/icon-delete.svg" alt="">
+        </div>
+        <button class="cart_modal__checkeout">Checkeout</button>
+      </div>
+    </div>
+
+
+
+  </main>
+  <!--Galeria modal -->
+  <div class="galeria_modal_fondo_negro">
+    <article class="galeria_modal">
+      <div class="galeria_modal_cerrar-conteiner">
+        <img class="galeria_modal_cerrar" src="./images/icon-close.svg" alt="">
+      </div>
+
+      <div class="galeria_modal_imagen-conteiner">
+        <img class="galeria_modal_izquierda" src="./images/icon-previous.svg" alt="icono izquierda">
+        <img class="galeria_modal_derecha" src="./images/icon-next.svg" alt="icono derecha">
+      </div>
+      <div class="galeria_modal_producto">
+        <img id="m1" class="modal_miniatura" src="./images/image-product-1-thumbnail.jpg" alt="producto">
+        <img id="m2" class="modal_miniatura" src="./images/image-product-2-thumbnail.jpg" alt="producto">
+        <img id="m3" class="modal_miniatura" src="./images/image-product-3-thumbnail.jpg" alt="producto">
+        <img id="m4" class="modal_miniatura" src="./images/image-product-4-thumbnail.jpg" alt="producto">
+      </div>
+    </article>
+  </div>
+
+
+  <footer class="attribution">
+    Semprini Carolina
+  </footer>
+
+
+  <script src="main.js"></script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+.detalle_producto {
+  padding: 24px;
+  .detalle_empresa {
+    color: $Orange;
+    text-transform: uppercase;
+    font-size: 0.8em;
+    letter-spacing: 1px;
+    margin-bottom: 12px;
+  }
+  .detalle_titulo {
+    font-size: 1.7em;
+    margin-bottom: 16px;
+  }
+  .detalle_descripcion {
+    font-size: 0.94em;
+    color: $Dark-grayis-blue;
+    line-height: 24px;
+    margin-bottom: 24px;
+  }
+  .detalle_precio {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 24px;
+    align-items: center;
+  }
+  .detalle_nuevo {
+    font-size: 1.8em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+  }
+  .detalle_descuento {
+    background-color: $Black;
+    color: $Orange;
+    padding: 4px;
+    border: 4px;
+    font-weight: 1000;
+    font-size: 10px;
+  }
+  .detalle_anterior {
+    font-weight: 700;
+    color: $Dark-grayis-blue;
+    text-decoration: line-through;
+  }
+
+  select {
+    border: 3px solid $Grayish-blue;
+    background-color: $Orange;
+    color: white;
+    font-size: 17px;
+    width: 150px;
+    height: 35px;
+  }
+  .detalles_boton {
+    @include boton_naranja;
+  }
+  @media (min-width) {
+    padding-top: 60px;
+    .detalle_titulo {
+      font-size: 2.7em;
+      margin-bottom: 48px;
+    }
+    .detalle_descripcion {
+      font-size: 0.9em;
+      margin-bottom: 37px;
+    }
+    .detalle_precio {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  }
+  .detalle_producto-cantidad {
+    display: flex;
+    gap: 32px;
+  }
+}

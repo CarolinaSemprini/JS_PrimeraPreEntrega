@@ -1,0 +1,41 @@
+@import url("https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@400;600&display=swap");
+
+@import "variables";
+@import "mixin";
+@import "header";
+@import "reseteo";
+@import "navbar";
+@import "modal-navbar";
+@import "galeria";
+@import "detalles";
+@import "input";
+@import "cart-modal";
+@import "modal-galeria";
+
+.main-container {
+  width: 375px;
+
+  margin: auto;
+  position: relative;
+  @media (min-width: 1115px) {
+    width: 1115px;
+  }
+}
+.content {
+  @media (min-width: 1115px) {
+    display: flex;
+    padding: 90px 50px;
+    gap: 124px;
+  }
+}
+
+.mostrar {
+  display: block;
+}
+
+.carrito-vacio {
+  text-align: center;
+  margin-top: 30px;
+  font-weight: 700;
+  color: black;
+}
