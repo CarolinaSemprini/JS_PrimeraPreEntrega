@@ -1,13 +1,170 @@
-// Bienvenida 
-let nombre= prompt("Ingrese su Nombre");
+
+
+/*let nombre= prompt("Ingrese su Nombre");
     alert("Bienvenid@"  + " " + nombre + " " + "a nuestro E-commerce de Zapatillas");
-let cantidad= prompt(nombre + ", "+"Cuántas Unidades deseas comprar");
+let carro= prompt("Que producto desea comprar?" + productos + "zapatillas deportias; zapatillas de cuero; zapatillas de lona; zapatillas exclusivas");
+    alert( "desea comprar" + carro )
 let stock=5
 if(cantidad<=stock)
     alert("Disponemos de Stock, continue al sitio para comprar");
 else{
     alert("No disponemos de Stock, solo contamos con 5 unidades")
+}*/
+
+
+const productos=[
+    {nombre:"zapatillas de cuero", precio: 50000},
+    {nombre:"zapatillas de lona", precio: 20000},
+    {nombre:"zapatillas de diseño exclusivo", precio: 80000},
+    {nombre:"zapatillas deportivas", precio: 60000},
+];
+
+let carro=[]
+
+const formaPago=[
+    {credito:"Naraja", cuotas: 6},
+    {credito:"Visa", cuotas: 12},
+    {credito:"Patagonia", cuotas: 18},
+]
+
+let seleccionPago=[]
+
+
+let seleccion =prompt("Desea comprar zapatillas: si o no")
+while(seleccion!="si" && seleccion !="no"){
+    alert("por favor ingresa si o no")
+    seleccion=prompt("hola desea comprar algo si o no");
 }
+
+if(seleccion =="si"){
+    alert("a continuación nuestra lista de productos")
+    let todoslosProductos= productos.map((producto)=>producto.nombre + " " + producto.precio +"$");
+    alert(todoslosProductos.join(" - "))
+}else if(seleccion=="no"){
+    alert("gracias por tu visita, hasta pronto")
+}
+while(seleccion == "si"){
+    let producto=prompt("agrega un producto a tu carrito")
+    let precio=0
+
+    //validacion de lo que ingresa el usuario con mi lista de productos
+
+    if(producto=="zapatillas de cuero" || producto=="zapatillas de lona" || producto=="zapatillas de diseño exclusivo" || producto=="zapatillas deportivas"){
+        switch(producto){
+            case "zapatillas de cuero":
+            precio=50000
+            break;
+
+            case "zapatillas de lona":
+            precio=20000
+            break;
+
+            case "zapatillas de diseño exclusivo":
+            precio=80000
+            break;
+
+            case "zapatillas deportivas":
+            precio=60000
+            break;
+            default:
+                break;
+        }
+        let unidades= parseInt(prompt("cuantas unidades quiere llevar"))
+
+        carro.push({producto, unidades, precio})
+        console.log(carro)  
+    }else{
+        alert("no tenemos su producto")
+    }
+    
+    seleccion= prompt("desea seguir comprando??")
+    while(seleccion === "no"){
+        alert("gracias por la compra, hasta pronto")
+        carro.forEach((carroFinal)=>{
+           console.log(`su carrito tiene los siguientes productos: producto:${carroFinal.producto}, unidades: ${carroFinal.unidades}, total a pagar ${carroFinal.unidades * carroFinal.precio}`)
+        
+        })
+        break;
+    }
+    const totalCompra= carro.reduce((acc,carro)=>acc +carro.precio * carro.unidades,0)
+    alert(`el total a pagar de su carrito es:${totalCompra}`)
+
+    let seleccionOpt
+    let menu=alert("seleccione una opcion de pago")
+    function tipopago(){
+    
+    menu+="1. Tarjeta\n";
+    menu+="2. Efectivo\n";
+    menu+="3. Salir\n";
+    seleccionOpt= prompt(menu);
+    }
+
+    tipopago();
+
+
+
+    while(menu!="1-Credito" || menu!="2-Efectivo" || menu!="3-Salir"){
+   alert("su opcion de pago fue" + seleccionOpt)
+    break;
+    }
+
+    if(seleccionOpt== "1"){
+    alert("a continuacion nuestros planes de pago")
+    let planespagos= formaPago.map((creditos)=> creditos.credito + " " + creditos.cuotas);
+    alert(planespagos.join(" - "))
+
+    }else if(seleccionOpt== "2"){
+    alert("comuniquese con nosotros para realizar su pago")
+    }
+    while(seleccionOpt=== "1"){
+    let credito=prompt("con qué tarjeta desea pagar: Naranja, Visa, Patagonia")
+    let cuotas=0
+
+    //validacion de lo que ingresa el usuario con mi lista de productos
+
+    if(credito=="Naranja" || credito=="Visa" || credito=="Patagonia"){
+        switch(credito){
+            case "Naranja":
+            cuotas=6
+            break;
+
+            case "Visa":
+            cuotas=12
+            break;
+
+            case "Patagonia":
+            cuotas=18
+            break;
+
+            default:
+                break;
+        }
+
+        seleccionPago.push({credito, cuotas})
+        console.log(seleccionPago)  
+    }else{
+        alert("no tenemos esa tarjeta")
+    }
+
+    seleccionOpt= prompt("desea finalizar la compra: si o no??")
+    if(seleccionOpt === "si"){
+        alert("gracias por su compra")
+        seleccionPago.forEach((pagofinal)=>{
+           alert(`su pago sera en : tarjeta:${pagofinal.credito}, cuotas: ${pagofinal.cuotas}`)
+        });
+        
+    }else{
+        alert("hasta pronto");
+    }
+    }
+
+
+}
+
+
+
+
+
 
 
 
@@ -213,13 +370,13 @@ function changePreviuseImage(imgContainer){
 
 //formas de pago
 //1) defino las variables correspondientes
-var opt_1=new Array("-","6","9","12","...");
-var opt_2=new Array("-","Visa","Cabal","Patagonia","...");
-var opt_3=new Array("-","mercado pago","...");
+let opt_1=new Array("-","6","9","12","...");
+let opt_2=new Array("-","Visa","Cabal","Patagonia","...");
+let opt_3=new Array("-","mercado pago","...");
 //2) se crea una funcion que permite ejecutar el cambio dinamico
 
 function cambia(){
-    var cosa;
+    let cosa;
     //se toma el valor de la forma de pago
     cosa=document.formulario1.cosa[document.formulario1.cosa.selectedIndex].value;
     //se verifica si forma_pago esta definida
